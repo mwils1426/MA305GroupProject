@@ -2,6 +2,11 @@
 # Max Wilson made this portion
 # Last updated: 4/5/22
 
+import COVID19Py
+import numpy as np
+import matplotlib.pyplot as plt
+covid19 = COVID19Py.COVID19("https://my-awesome-covid19-backend")
+
 def userInput():
     optionPick = input("Would you like to review vaccine(s) percentages (1), hospitalizations per state (2), "
                        "or current percentage of those COVID-19? (3)")
@@ -31,12 +36,11 @@ def userInput():
                         print(vaccineType2)
                         print(dateRange)
                 else:
-                    match vaccineType:
-                        case "Moderna":
+                    if vaccineType == "Moderna":
                             # pull info from excel sheet about moderna through the given date range
-                        case "J&J":
+                    elif == "J&J":
                             # pull info on J&J through the given date range
-                        case "Pfizer":
+                    elif == "Pfizer":
                             # pull info on Pfizer through the given date range
                         # display graph and save info to new CSV
             else:
@@ -47,16 +51,23 @@ def userInput():
             hospitalStateNumbers = input("Please enter which state you would like to review: ")
             print("State chosen: ", hospitalStateNumbers)
             hstateNums(hospitalStateNumbers)
-            # display graph and save info to new CSV
-            return vaccineType, dateRange, compareVaccine, vaccinetype2, hospitalStateNumbers, hstateNums(
-                hospitalStateNumbers)
         case "3":
             dateRange = input("Please enter a date: ")
             print("Date Range: " + dateRange)
-            # num = the number of folks with covid 19 given the date range, has to be a list/array
             print("The total average percentage of the population that had COVID-19 for the following dates are: " + avg())
-            # display graph of data and save info to new CSV
+            print("See the graph below for a more detailed breakdown by month.")
+            # display graph of data
+            # make x and y arrays
+            # figure out how to map the date range to an array
+            # plt.plot(x, y, color='red', marker='o', markerface='blue', markersize=12)
+            plt.ylim(1, 100)
+            plt.xlim('January', 'December')  # month
+            plt.xlabel('Month')
+            plt.ylabel('Percentage of population with covid')
+            plt.title('Percentage of population with COVID-19 per Month')
+            plt.show()
 
+            #save info to new CSV
 
 def avg(num):
     sum = 0

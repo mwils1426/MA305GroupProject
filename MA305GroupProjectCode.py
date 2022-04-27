@@ -22,7 +22,6 @@ import UserInput
 
 vaccineType, dateRange, compareVaccine, vaccineType2, empty1, empty2 = UserInput()
 
-
 ###########################################################################
 #new code: by Connor 
 
@@ -85,6 +84,4 @@ df = pd.DataFrame(data, index=idx, columns=cols)
 #     print_covid_graph(dates, vaccine_1, (VaccineType, 'administered between', dates[0], 'and', dates[-1]))
 
 ###########################################################################
-    
-    
-    
+

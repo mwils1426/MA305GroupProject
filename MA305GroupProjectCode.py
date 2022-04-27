@@ -1,6 +1,6 @@
 
 # Authors: Connor Castleberry, Max Wilson, Hannah Braslawsce, John Scheer
-# Date: 2 / 18 / 2022
+# Date: 4 / 26 / 2022
 # Description: MA 305 Class Project, Covid statistics analyzer
 
 # Note: COVID19PY code must be in the same folder as this program
@@ -20,7 +20,8 @@ from openpyxl import load_workbook
 #from UserInput import *
 import UserInput
 
-vaccineType, dateRange, compareVaccine, vaccineType2, empty1, empty2 = UserInput()
+vaccineType, dateRange, compareVaccine, vaccineType2, State = UserInput()
+
 
 ###########################################################################
 #new code: by Connor 
@@ -66,7 +67,10 @@ df = pd.DataFrame(data, index=idx, columns=cols)
 
 # if bool(vaccineType):  #if no vaccine requested
 # # is false: report cases numbers 
-#          get data for cases
+#     if bool(state): #state data requested
+#         #get state data from excel
+#     else: #just cases data requested
+#          #get data for cases from excel
 # elif bool(vaccineType2):  #if only one vaccine requested
 #   #get data for the the vaccine 1
 # else:  #if a rtwo vaccine is request
@@ -76,7 +80,10 @@ df = pd.DataFrame(data, index=idx, columns=cols)
 
 # # graph vaccineType1
 # if bool(vaccineType):
-#     print_covid_graph(dates, cases, ('Covid Case between', dates[0], 'and', dates[-1]))
+#     if bool(state): #state requested
+#          print_covid_graph(dates, cases, ('Hospitalization by state between', dates[0], 'and', dates[-1]))
+    # else: #just cases requested
+#         print_covid_graph(dates, cases, ('Covid Case between', dates[0], 'and', dates[-1]))
 # elif not bool(vaccineType2):
 #      print_covid_graph(dates, vaccine_1, (VaccineType, 'administered between', dates[0], 'and', dates[-1]))
 #      print_covid_graph(dates, vaccine_2, (VaccineType2, 'administered between', dates[0], 'and', dates[-1]))
@@ -84,4 +91,6 @@ df = pd.DataFrame(data, index=idx, columns=cols)
 #     print_covid_graph(dates, vaccine_1, (VaccineType, 'administered between', dates[0], 'and', dates[-1]))
 
 ###########################################################################
-
+    
+    
+    
